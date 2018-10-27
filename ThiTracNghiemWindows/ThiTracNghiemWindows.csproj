@@ -179,7 +179,7 @@
     <Compile Include="FrmQLnguoidung.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmQLnguoidung.Designer.cs" >
+    <Compile Include="FrmQLnguoidung.Designer.cs">
       <DependentUpon>FrmQLnguoidung.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmQLtheophong.cs">
@@ -275,7 +275,7 @@
     <EmbeddedResource Include="FrmQLDangKyThi.resx">
       <DependentUpon>FrmQLDangKyThi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQLnguoidung.resx" >
+    <EmbeddedResource Include="FrmQLnguoidung.resx">
       <DependentUpon>FrmQLnguoidung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQLtheophong.resx">
@@ -391,6 +391,9 @@
       <Project>{30d37bce-c76d-4c24-aa04-debc2e5867cc}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

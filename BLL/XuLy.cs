@@ -120,11 +120,11 @@ namespace BLL
         {
             return clsv.loadgv();
         }
-        public int themsinhvien(string matt, string hoten, string ngsinh, string gt, string dc, string sdt, string mail, int hinh)
+        public int themsinhvien(string matt, string hoten, string ngsinh, string gt, string dc, string sdt, string mail, string hinh)
         {
             try
             {
-                clsv.themsv(matt, hoten, ngsinh, gt, dc, sdt, mail, 0);
+                clsv.themsv(matt, hoten, ngsinh, gt, dc, sdt, mail, 0, hinh);
                 return 0;
             }
             catch
@@ -145,11 +145,11 @@ namespace BLL
                 return 1;
             }
         }
-        public int suathongtinnguoidung(string matt, string hoten, string ngsinh, string gt, string dc, string sdt, string mail, int hinh)
+        public int suathongtinnguoidung(string matt, string hoten, string ngsinh, string gt, string dc, string sdt, string mail, string hinh)
         {
             try
             {
-                clsv.suasv(matt, hoten, ngsinh, gt, dc, sdt, mail, 0);
+                clsv.suasv(matt, hoten, ngsinh, gt, dc, sdt, mail, 0, hinh);
                 return 0;
             }
             catch

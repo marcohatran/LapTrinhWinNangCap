@@ -37,7 +37,7 @@ namespace DAL
             dta.Fill(dt);
             return dt;
         }
-        public void themsv(string matt, string hoten, string ngsinh, string gt, string dc,string sdt, string mail,int kieu)
+        public void themsv(string matt, string hoten, string ngsinh, string gt, string dc,string sdt, string mail,int kieu ,string hinh )
         {
             conn.Open();
             if (kieu == 0)
@@ -59,7 +59,7 @@ namespace DAL
                         gt = "1";
                     else
                         gt = "0";
-                    string addsv = "insert into ThongTinNguoiDung (MaNguoiDung,HoTen,NgaySinh,GioiTinh,DiaChi,SDT,Email,Hinh) values ('" + dt.Rows[0][0].ToString().Trim() + "',N'" + hoten.ToString() + "','" + ns.ToString() + "'," + gt.ToString() + ",N'" + dc.ToString() + "','" + sdt.ToString() + "','" + mail.ToString() + "','0.png')";
+                    string addsv = "insert into ThongTinNguoiDung (MaNguoiDung,HoTen,NgaySinh,GioiTinh,DiaChi,SDT,Email,Hinh) values ('" + dt.Rows[0][0].ToString().Trim() + "',N'" + hoten.ToString() + "','" + ns.ToString() + "'," + gt.ToString() + ",N'" + dc.ToString() + "','" + sdt.ToString() + "','" + mail.ToString() + "', '"+hinh+"')";
                     SqlCommand cmdsv = new SqlCommand(addsv, conn);
                     cmdsv.ExecuteNonQuery();
                 }
@@ -87,7 +87,7 @@ namespace DAL
             conn.Close();
 
         }
-        public void suasv(string matt, string hoten, string ngsinh, string gt, string dc, string sdt, string mail, int kieu)
+        public void suasv(string matt, string hoten, string ngsinh, string gt, string dc, string sdt, string mail, int kieu ,string hinh)
         {
             conn.Open();
             string day = ngsinh.Substring(0, 2);
@@ -97,7 +97,7 @@ namespace DAL
                 gt = "1";
             else
                 gt = "0";
-            string str = "Update ThongTinNguoiDung set HoTen='" + hoten.ToString() + "',NgaySinh='" + ns.ToString() + "',GioiTinh='" + gt.ToString() + "',DiaChi='" + dc.ToString() + "',SDT='" + sdt.ToString() + "',Email='" + mail.ToString() + "',Hinh='0.png' where MaThongTinNguoiDung='" + matt.ToString() + "'";
+            string str = "Update ThongTinNguoiDung set HoTen= N'" + hoten.ToString() + "',NgaySinh='" + ns.ToString() + "',GioiTinh= N'" + gt.ToString() + "',DiaChi= N'" + dc.ToString() + "',SDT='" + sdt.ToString() + "',Email='" + mail.ToString() + "',Hinh='"+hinh+" ' where MaThongTinNguoiDung='" + matt.ToString() + "'";
             SqlCommand cmd = new SqlCommand(str, conn);
             cmd.ExecuteNonQuery();
             conn.Close();

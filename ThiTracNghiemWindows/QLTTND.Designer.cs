@@ -48,9 +48,9 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.pic_hinh = new DevExpress.XtraEditors.PictureEdit();
             this.gv_sv = new DevExpress.XtraGrid.GridControl();
             this.gv_dssv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.MAND = new DevExpress.XtraGrid.Columns.GridColumn();
             this.hoten = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ngaysinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gioitinh = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,7 +61,7 @@
             this.email = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.MAND = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.picNguoiDung = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.grp_ttsv)).BeginInit();
             this.grp_ttsv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_mattnd.Properties)).BeginInit();
@@ -71,17 +71,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.date_ngaysinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_diachi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_hoten.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_hinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_sv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_dssv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNguoiDung)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_ttsv
             // 
             this.grp_ttsv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grp_ttsv.Controls.Add(this.picNguoiDung);
             this.grp_ttsv.Controls.Add(this.lk_gioitinh);
             this.grp_ttsv.Controls.Add(this.txt_mattnd);
             this.grp_ttsv.Controls.Add(this.txt_email);
@@ -100,7 +101,6 @@
             this.grp_ttsv.Controls.Add(this.labelControl5);
             this.grp_ttsv.Controls.Add(this.labelControl4);
             this.grp_ttsv.Controls.Add(this.labelControl2);
-            this.grp_ttsv.Controls.Add(this.pic_hinh);
             this.grp_ttsv.Location = new System.Drawing.Point(3, 3);
             this.grp_ttsv.Name = "grp_ttsv";
             this.grp_ttsv.Size = new System.Drawing.Size(681, 233);
@@ -261,16 +261,6 @@
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Họ tên: ";
             // 
-            // pic_hinh
-            // 
-            this.pic_hinh.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pic_hinh.Location = new System.Drawing.Point(16, 33);
-            this.pic_hinh.Name = "pic_hinh";
-            this.pic_hinh.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pic_hinh.Properties.ZoomAccelerationFactor = 1D;
-            this.pic_hinh.Size = new System.Drawing.Size(120, 160);
-            this.pic_hinh.TabIndex = 0;
-            // 
             // gv_sv
             // 
             this.gv_sv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -304,6 +294,15 @@
             this.gv_dssv.Name = "gv_dssv";
             this.gv_dssv.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
             this.gv_dssv.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gv_dssv_FocusedRowChanged);
+            // 
+            // MAND
+            // 
+            this.MAND.Caption = "Mã  thông tin người dùng";
+            this.MAND.FieldName = "MaThongTinNguoiDung";
+            this.MAND.Name = "MAND";
+            this.MAND.OptionsColumn.ReadOnly = true;
+            this.MAND.Visible = true;
+            this.MAND.VisibleIndex = 0;
             // 
             // hoten
             // 
@@ -388,14 +387,15 @@
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.VisibleIndex = 0;
             // 
-            // MAND
+            // picNguoiDung
             // 
-            this.MAND.Caption = "Mã  thông tin người dùng";
-            this.MAND.FieldName = "MaThongTinNguoiDung";
-            this.MAND.Name = "MAND";
-            this.MAND.OptionsColumn.ReadOnly = true;
-            this.MAND.Visible = true;
-            this.MAND.VisibleIndex = 0;
+            this.picNguoiDung.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picNguoiDung.Location = new System.Drawing.Point(18, 41);
+            this.picNguoiDung.Name = "picNguoiDung";
+            this.picNguoiDung.Size = new System.Drawing.Size(115, 157);
+            this.picNguoiDung.TabIndex = 29;
+            this.picNguoiDung.TabStop = false;
+            this.picNguoiDung.Click += new System.EventHandler(this.picNguoiDung_Click);
             // 
             // QLTTND
             // 
@@ -416,11 +416,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.date_ngaysinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_diachi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_hoten.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_hinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_sv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_dssv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picNguoiDung)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,7 +446,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.PictureEdit pic_hinh;
         private DevExpress.XtraGrid.GridControl gv_sv;
         private DevExpress.XtraGrid.Views.Grid.GridView gv_dssv;
         private DevExpress.XtraGrid.Columns.GridColumn hoten;
@@ -460,5 +459,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridView1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Columns.GridColumn MAND;
+        private System.Windows.Forms.PictureBox picNguoiDung;
     }
 }
