@@ -1,0 +1,5 @@
+   <add name="Conn" connectionString="Data Source=DESKTOP-2M491UV\SQLEXPRESS;Initial Catalog=PMTHI;Integrated Security=True"
+         providerName="System.Data.SqlClient" />
+      <add name="ThiTracNghiemWindows.Properties.Settings.PMTHIConnectionString"
+         connectionString="Data Source=DESKTOP-2M491UV\SQLEXPRESS;Initial Catalog=PMTHI;Integrated Security=True"
+         providerName="System.Data.SqlClient" />
