@@ -179,7 +179,9 @@
     <Compile Include="FrmQLnguoidung.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmQLnguoidung.Designer.cs" />
+    <Compile Include="FrmQLnguoidung.Designer.cs" >
+      <DependentUpon>FrmQLnguoidung.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQLtheophong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,7 +275,9 @@
     <EmbeddedResource Include="FrmQLDangKyThi.resx">
       <DependentUpon>FrmQLDangKyThi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQLnguoidung.resx" />
+    <EmbeddedResource Include="FrmQLnguoidung.resx" >
+      <DependentUpon>FrmQLnguoidung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQLtheophong.resx">
       <DependentUpon>FrmQLtheophong.cs</DependentUpon>
     </EmbeddedResource>
