@@ -62,7 +62,7 @@ namespace LinqToSql
         public int CheckTenBoDe(string TenBoDe)
         {
             var kttenBD = from bd in thi.BoDes
-                          where bd.TenBoDe.Equals(TenBoDe, StringComparison.OrdinalIgnoreCase)
+                          where bd.TenBoDe == TenBoDe && bd.DaXoa !=true
                           select bd;
             if(kttenBD.Count()==0)
             {
@@ -163,5 +163,15 @@ namespace LinqToSql
             return thi.KetQuas.Where(t => t.MaKetQua == makq).ToList<KetQua>();
         }
 
+
+        public void XoaChiTietBoDe (int maBoDe)
+        {
+            var listCT = thi.ChiTietBoDes.Where(t => t.MaBoDe == maBoDe).ToList();
+            foreach (var chiTiet in listCT)
+            {
+                chiTiet.DaXoa = true;
+            }
+            thi.SubmitChanges();
+        }
     }
 }

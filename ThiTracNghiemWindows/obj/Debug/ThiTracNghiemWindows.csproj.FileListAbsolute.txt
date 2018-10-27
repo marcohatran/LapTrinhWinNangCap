@@ -14,12 +14,13 @@ E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiem
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.FrmTTSV.resources
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.Login.resources
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.Phongthi.resources
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.Properties.Resources.resources
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.QLTTND.resources
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.QL_CauHoi.resources
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.UserControlDangNhap.resources
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.csproj.GenerateResource.cache
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.exe
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.pdb
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.exe.licenses
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.csproj.CoreCompileInputs.cache
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\ThiTracNghiemWindows.exe.config
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\ThiTracNghiemWindows.exe
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\ThiTracNghiemWindows.pdb
@@ -132,6 +133,7 @@ E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\DevExpress.Xt
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.xml
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\LinqToSql.pdb
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\LinqToSql.dll.config
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\DevExpress.ExpressApp.ReportsV2.v17.1.xml
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\DevExpress.ExpressApp.Xpo.v17.1.xml
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\DevExpress.ExpressApp.Kpi.v17.1.xml
@@ -320,7 +322,6 @@ E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\de\DevExpress
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\es\DevExpress.Diagram.v17.1.Core.resources.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.Properties.Resources.resources
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.exe.licenses
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.csproj.CoreCompileInputs.cache
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.csproj.CopyComplete
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.exe
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\ThiTracNghiemWindows\obj\Debug\ThiTracNghiemWindows.pdb

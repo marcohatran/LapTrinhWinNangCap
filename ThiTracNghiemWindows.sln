@@ -1,8 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThiTracNghiemWindows", "ThiTracNghiemWindows\ThiTracNghiemWindows.csproj", "{CDF9E3F5-CC9D-4513-879E-E36AF9CADCCE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{1FFCAE0E-0576-4F27-BD99-CF550BF2789A} = {1FFCAE0E-0576-4F27-BD99-CF550BF2789A}
 		{E2E2BABB-8975-4E9B-9488-1585DB726234} = {E2E2BABB-8975-4E9B-9488-1585DB726234}
 		{30D37BCE-C76D-4C24-AA04-DEBC2E5867CC} = {30D37BCE-C76D-4C24-AA04-DEBC2E5867CC}
 	EndProjectSection
@@ -38,5 +41,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3766466-2BEF-4DA9-885C-6B0F339FAFC2}
 	EndGlobalSection
 EndGlobal

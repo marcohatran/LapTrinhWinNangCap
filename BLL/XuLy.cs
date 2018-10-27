@@ -182,16 +182,16 @@ namespace BLL
                 return 1;
             }
         }
-        public int CapPhat(string mabd)
+        public bool CapPhat(string mabd)
         {
             try
             {
                 bdch.CapPhat(mabd);
-                return 0;
+                return true;
             }
             catch
             {
-                return 1;
+                return false;
             }
         }
         public DataTable LoadChiTiet(string mabode)

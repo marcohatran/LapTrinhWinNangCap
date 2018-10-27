@@ -1,3 +1,8 @@
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.CauTraLoi.resources
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.DemGio.resources
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.dll.licenses
+E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\bin\Debug\BLL.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\bin\Debug\BLL.pdb
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\bin\Debug\DAL.dll
@@ -93,11 +98,6 @@ E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\bin\Debug\es\DevExpress.Office.v17.1.Cor
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\bin\Debug\ja\DevExpress.Office.v17.1.Core.resources.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\bin\Debug\ru\DevExpress.Office.v17.1.Core.resources.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.CauTraLoi.resources
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.DemGio.resources
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.dll.licenses
-E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.pdb
