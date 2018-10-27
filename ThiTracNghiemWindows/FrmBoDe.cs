@@ -30,6 +30,7 @@ namespace ThiTracNghiemWindows
                 if (gv_bode.GetFocusedRowCellValue("MaBoDe") == null)
                 {
                     return; // no ma no de
+                }
                 int maBoDe = int.Parse(gv_bode.GetFocusedRowCellValue("MaBoDe").ToString());
                 dl.XoaChiTietBoDe(maBoDe);
                 //
