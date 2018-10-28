@@ -407,5 +407,15 @@ namespace LinqToSql
             }
             return diem;
         }
+
+
+        public void AddListCauHoi(List<CauHoi> cauHois)
+        {
+            foreach (var cauHoi in cauHois)
+            {
+                thi.CauHois.InsertOnSubmit(cauHoi);
+            }
+            thi.SubmitChanges();
+        }
     }
 }

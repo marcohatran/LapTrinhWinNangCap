@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using LinqToSql;
+using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace ThiTracNghiemWindows
 {
@@ -134,11 +136,81 @@ namespace ThiTracNghiemWindows
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            txt_cauhoi.Enabled = txt_dapana.Enabled = txt_b.Enabled = txt_c.Enabled = txt_d.Enabled = btn_luu.Enabled = frm_checkda.Enabled = cb_loaicauhoi.Enabled = true;
-            btn_sua.Enabled = btn_xoa.Enabled = false;
-            txt_cauhoi.Visible = txt_b.Visible = txt_c.Visible = txt_d.Visible = txt_dapana.Visible = true;
-            txt_cauhoi.Text = txt_dapana.Text = txt_b.Text = txt_c.Text = txt_d.Text = "";
-            XuLyNut("sssss");
+            //txt_cauhoi.Enabled = txt_dapana.Enabled = txt_b.Enabled = txt_c.Enabled = txt_d.Enabled = btn_luu.Enabled = frm_checkda.Enabled = cb_loaicauhoi.Enabled = true;
+            //btn_sua.Enabled = btn_xoa.Enabled = false;
+            //txt_cauhoi.Visible = txt_b.Visible = txt_c.Visible = txt_d.Visible = txt_dapana.Visible = true;
+            //txt_cauhoi.Text = txt_dapana.Text = txt_b.Text = txt_c.Text = txt_d.Text = "";
+            //XuLyNut("sssss");
+            using (OpenFileDialog open = new OpenFileDialog())
+            {
+                open.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm |All files (*.*)|*.*";
+                List<CauHoi> cauHois = new List<CauHoi>();
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        Microsoft.Office.Interop.Excel.Application _excelApp = new Microsoft.Office.Interop.Excel.Application();
+                        _excelApp.Visible = true;
+                        string fileName = open.FileName;
+
+                        //open the workbook
+                        Workbook workbook = _excelApp.Workbooks.Open(fileName,
+                            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                            Type.Missing, Type.Missing);
+
+                        //select the first sheet        
+                        Worksheet worksheet = (Worksheet)workbook.Worksheets[1];
+
+                        //find the used range in worksheet
+                        Range excelRange = worksheet.UsedRange;
+
+                        //get an object array of all of the cells in the worksheet (their values)
+                        object[,] valueArray = (object[,])excelRange.get_Value(
+                                    XlRangeValueDataType.xlRangeValueDefault);
+
+                        //access the cells
+                        for (int row = 2; row <= worksheet.UsedRange.Rows.Count; ++row)
+                        {
+                            //for (int col = 1; col <= worksheet.UsedRange.Columns.Count; ++col)
+                            //{
+                            //    //access each cell
+                            //    string value = valueArray[row, col].ToString();
+                            //}
+                            CauHoi cauHoi = new CauHoi()
+                            {
+                                MaLoaiCauHoi = int.Parse(valueArray[row, 1].ToString()),
+                                NoiDungCauHoi = valueArray[row, 2].ToString(),
+                                DapAnA = valueArray[row, 3].ToString().Equals("NULL") ? null : valueArray[row, 3].ToString(),
+                                DapAnB = valueArray[row, 4].ToString().Equals("NULL") ? null : valueArray[row, 4].ToString(),
+                                DapAnC = valueArray[row, 5].ToString().Equals("NULL") ? null: valueArray[row, 5].ToString(),
+                                DapAnD = valueArray[row, 6].ToString().Equals("NULL") ? null : valueArray[row, 6].ToString(),
+                                DapAnDung = valueArray[row, 7].ToString().Equals("NULL") ? null : valueArray[row, 7].ToString(),
+                                HinhAnh = valueArray[row, 8].ToString().Equals("NULL") ? null : valueArray[row, 8].ToString(),
+                            };
+                            cauHois.Add(cauHoi);
+                        }
+                        workbook.Close(false, Type.Missing, Type.Missing);
+                        Marshal.ReleaseComObject(workbook);
+
+                        _excelApp.Quit();
+                        Marshal.FinalReleaseComObject(_excelApp);
+                    }
+                    catch (Exception ex)
+                    {
+                        string error = ex.Message;
+                        MessageBox.Show("Định dạng file không chính xác");
+                    }
+                    
+                }
+                if(cauHois.Count > 0)
+                {
+                    dl.AddListCauHoi(cauHois);
+                    MessageBox.Show("Thêm thành công");
+                    LoadGVCH();
+                }
+            }
         }
 
         private void btn_xoa_Click(object sender, EventArgs e)

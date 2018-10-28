@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_logout = new DevExpress.XtraBars.BarButtonItem();
@@ -124,9 +124,9 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group1";
             this.skinRibbonGalleryBarItem2.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.skinRibbonGalleryBarItem2.Id = 4;
             this.skinRibbonGalleryBarItem2.Name = "skinRibbonGalleryBarItem2";
             // 
@@ -369,7 +369,6 @@
             // 
             this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Thống kê";
             // 
             // ribbonPage8
             // 
