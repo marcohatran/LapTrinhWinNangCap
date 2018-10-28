@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_logout = new DevExpress.XtraBars.BarButtonItem();
@@ -64,8 +64,8 @@
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tab_hienthi = new DevExpress.XtraTab.XtraTabControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tab_hienthi)).BeginInit();
@@ -105,7 +105,7 @@
             this.ribbonPage7,
             this.ribbonPage8});
             this.ribbon.Size = new System.Drawing.Size(1007, 143);
-            this.ribbon.StatusBar = this.ribbonStatusBar1;
+            this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btn_logout
             // 
@@ -119,9 +119,9 @@
             // 
             // 
             // 
-            galleryItemGroup2.Caption = "Group1";
+            galleryItemGroup1.Caption = "Group1";
             this.skinRibbonGalleryBarItem2.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.skinRibbonGalleryBarItem2.Id = 4;
             this.skinRibbonGalleryBarItem2.Name = "skinRibbonGalleryBarItem2";
             // 
@@ -221,6 +221,7 @@
             this.btn_qltheomon.Caption = "Quản lý bộ đề";
             this.btn_qltheomon.Id = 18;
             this.btn_qltheomon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_qltheomon.ImageOptions.Image")));
+            this.btn_qltheomon.LargeWidth = 80;
             this.btn_qltheomon.Name = "btn_qltheomon";
             this.btn_qltheomon.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -329,7 +330,7 @@
             this.ribbonPageGroup6.ItemLinks.Add(this.btn_qltheomon);
             this.ribbonPageGroup6.ItemLinks.Add(this.btn_dethi);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Bộ đề - Câu hỏi";
             // 
             // ribbonPage7
             // 
@@ -362,6 +363,13 @@
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.Text = "ribbonPageGroup10";
             // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(1, 316);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbon;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(918, 27);
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
@@ -370,13 +378,6 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1007, 31);
-            // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(1, 316);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbon;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(918, 27);
             // 
             // tab_hienthi
             // 

@@ -203,6 +203,7 @@
             this.txt_d.Name = "txt_d";
             this.txt_d.Size = new System.Drawing.Size(234, 20);
             this.txt_d.TabIndex = 34;
+            this.txt_d.Leave += new System.EventHandler(this.txt_d_Leave);
             // 
             // txt_c
             // 
@@ -210,6 +211,7 @@
             this.txt_c.Name = "txt_c";
             this.txt_c.Size = new System.Drawing.Size(234, 20);
             this.txt_c.TabIndex = 33;
+            this.txt_c.Leave += new System.EventHandler(this.txt_c_Leave);
             // 
             // txt_cauhoi
             // 
@@ -245,15 +247,22 @@
             this.frm_checkda.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.frm_checkda.Size = new System.Drawing.Size(120, 95);
             this.frm_checkda.TabIndex = 30;
+            this.frm_checkda.ItemChecking += new DevExpress.XtraEditors.Controls.ItemCheckingEventHandler(this.frm_checkda_ItemChecking);
+            this.frm_checkda.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.frm_checkda_ItemCheck);
+            this.frm_checkda.SelectedValueChanged += new System.EventHandler(this.frm_checkda_SelectedValueChanged);
             // 
             // pic_hinh
             // 
+            this.pic_hinh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_hinh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_hinh.Location = new System.Drawing.Point(1066, 28);
+            this.pic_hinh.Location = new System.Drawing.Point(900, 28);
             this.pic_hinh.Name = "pic_hinh";
-            this.pic_hinh.Size = new System.Drawing.Size(174, 194);
+            this.pic_hinh.Size = new System.Drawing.Size(378, 220);
             this.pic_hinh.TabIndex = 29;
             this.pic_hinh.TabStop = false;
+            this.pic_hinh.Click += new System.EventHandler(this.pic_hinh_Click);
             // 
             // txt_b
             // 
@@ -261,6 +270,7 @@
             this.txt_b.Name = "txt_b";
             this.txt_b.Size = new System.Drawing.Size(234, 20);
             this.txt_b.TabIndex = 27;
+            this.txt_b.Leave += new System.EventHandler(this.txt_b_Leave);
             // 
             // labelControl3
             // 
@@ -294,6 +304,7 @@
             this.btn_luu.Size = new System.Drawing.Size(75, 28);
             this.btn_luu.TabIndex = 20;
             this.btn_luu.Text = "Lưu";
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // btn_sua
             // 
@@ -303,6 +314,7 @@
             this.btn_sua.Size = new System.Drawing.Size(75, 28);
             this.btn_sua.TabIndex = 15;
             this.btn_sua.Text = "Sửa";
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_xoa
             // 
@@ -312,6 +324,7 @@
             this.btn_xoa.Size = new System.Drawing.Size(75, 28);
             this.btn_xoa.TabIndex = 14;
             this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_them
             // 
@@ -329,6 +342,7 @@
             this.txt_dapana.Name = "txt_dapana";
             this.txt_dapana.Size = new System.Drawing.Size(234, 20);
             this.txt_dapana.TabIndex = 8;
+            this.txt_dapana.Leave += new System.EventHandler(this.txt_dapana_Leave);
             // 
             // lb_c
             // 

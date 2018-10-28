@@ -207,7 +207,7 @@ namespace ThiTracNghiemWindows
             int t = 0;
             foreach (DevExpress.XtraTab.XtraTabPage tab in tab_hienthi.TabPages)
             {
-                if (tab.Text == "Bộ đề")
+                if (tab.Text == "Kết quả thi")
                 {
                     tab_hienthi.SelectedTabPage = tab;
                     t = 1;
@@ -219,7 +219,7 @@ namespace ThiTracNghiemWindows
             }
             else
             {// Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
-                clsaddtab.AddTab(tab_hienthi, "", "Bộ đề", new QL_CauHoi());
+                clsaddtab.AddTab(tab_hienthi, "", "Kết quả thi", new FrmKetQua());
             }
         }
     }

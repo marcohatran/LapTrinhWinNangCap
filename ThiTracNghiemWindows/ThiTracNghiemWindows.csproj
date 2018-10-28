@@ -212,6 +212,12 @@
     <Compile Include="FrmTTSV.Designer.cs">
       <DependentUpon>FrmTTSV.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmKetQua.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmKetQua.Designer.cs">
+      <DependentUpon>FrmKetQua.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTTSV.resx">
       <DependentUpon>FrmTTSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKetQua.resx">
+      <DependentUpon>FrmKetQua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
