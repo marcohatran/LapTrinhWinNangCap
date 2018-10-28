@@ -49,15 +49,18 @@
             // 
             this.txt_mkht.Location = new System.Drawing.Point(144, 88);
             this.txt_mkht.Name = "txt_mkht";
+            this.txt_mkht.Properties.PasswordChar = '*';
             this.txt_mkht.Size = new System.Drawing.Size(202, 20);
-            this.txt_mkht.TabIndex = 5;
+            this.txt_mkht.TabIndex = 2;
+            this.txt_mkht.EditValueChanged += new System.EventHandler(this.txt_mkht_EditValueChanged);
             // 
             // txt_mkmoi
             // 
             this.txt_mkmoi.Location = new System.Drawing.Point(144, 114);
             this.txt_mkmoi.Name = "txt_mkmoi";
+            this.txt_mkmoi.Properties.PasswordChar = '*';
             this.txt_mkmoi.Size = new System.Drawing.Size(202, 20);
-            this.txt_mkmoi.TabIndex = 6;
+            this.txt_mkmoi.TabIndex = 3;
             // 
             // labelControl4
             // 
@@ -68,15 +71,16 @@
             this.labelControl4.Location = new System.Drawing.Point(12, 137);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(114, 19);
-            this.labelControl4.TabIndex = 3;
+            this.labelControl4.TabIndex = 10;
             this.labelControl4.Text = "Nhập lại mật khẩu ";
             // 
             // txt_mkxn
             // 
             this.txt_mkxn.Location = new System.Drawing.Point(144, 140);
             this.txt_mkxn.Name = "txt_mkxn";
+            this.txt_mkxn.Properties.PasswordChar = '*';
             this.txt_mkxn.Size = new System.Drawing.Size(202, 20);
-            this.txt_mkxn.TabIndex = 7;
+            this.txt_mkxn.TabIndex = 4;
             // 
             // labelControl3
             // 
@@ -87,7 +91,7 @@
             this.labelControl3.Location = new System.Drawing.Point(12, 112);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(88, 19);
-            this.labelControl3.TabIndex = 2;
+            this.labelControl3.TabIndex = 9;
             this.labelControl3.Text = "Mật khẩu mới ";
             // 
             // labelControl2
@@ -99,7 +103,7 @@
             this.labelControl2.Location = new System.Drawing.Point(12, 87);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(108, 19);
-            this.labelControl2.TabIndex = 1;
+            this.labelControl2.TabIndex = 8;
             this.labelControl2.Text = "Mật khẩu hiện tại ";
             // 
             // labelControl1
@@ -111,7 +115,7 @@
             this.labelControl1.Location = new System.Drawing.Point(12, 61);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(67, 19);
-            this.labelControl1.TabIndex = 0;
+            this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Tài khoản :";
             // 
             // labelControl5
@@ -123,7 +127,7 @@
             this.labelControl5.Location = new System.Drawing.Point(85, 12);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(208, 31);
-            this.labelControl5.TabIndex = 8;
+            this.labelControl5.TabIndex = 0;
             this.labelControl5.Text = "ĐỔI MẬT KHẨU";
             // 
             // cb_taikhoan
@@ -132,7 +136,7 @@
             this.cb_taikhoan.Location = new System.Drawing.Point(144, 61);
             this.cb_taikhoan.Name = "cb_taikhoan";
             this.cb_taikhoan.Size = new System.Drawing.Size(202, 21);
-            this.cb_taikhoan.TabIndex = 11;
+            this.cb_taikhoan.TabIndex = 1;
             this.cb_taikhoan.SelectedIndexChanged += new System.EventHandler(this.cb_taikhoan_SelectedIndexChanged);
             // 
             // btn_huy
@@ -145,7 +149,7 @@
             this.btn_huy.Location = new System.Drawing.Point(195, 184);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(122, 36);
-            this.btn_huy.TabIndex = 10;
+            this.btn_huy.TabIndex = 6;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
@@ -159,7 +163,7 @@
             this.btn_doimk.Location = new System.Drawing.Point(39, 184);
             this.btn_doimk.Name = "btn_doimk";
             this.btn_doimk.Size = new System.Drawing.Size(129, 36);
-            this.btn_doimk.TabIndex = 9;
+            this.btn_doimk.TabIndex = 5;
             this.btn_doimk.Text = "Đổi mật khẩu";
             this.btn_doimk.Click += new System.EventHandler(this.btn_doimk_Click);
             // 
@@ -170,16 +174,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 272);
-            this.Controls.Add(this.cb_taikhoan);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.btn_huy);
+            this.Controls.Add(this.cb_taikhoan);
             this.Controls.Add(this.txt_mkht);
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.txt_mkmoi);
+            this.Controls.Add(this.txt_mkxn);
             this.Controls.Add(this.btn_doimk);
+            this.Controls.Add(this.btn_huy);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txt_mkxn);
             this.Controls.Add(this.labelControl3);
             this.Name = "FrmChangPass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

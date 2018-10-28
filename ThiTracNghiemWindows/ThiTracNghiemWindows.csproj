@@ -127,6 +127,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackgroundMain.Designer.cs">
+      <DependentUpon>BackgroundMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="DangKy.cs">
       <SubType>Form</SubType>
@@ -206,6 +212,12 @@
     <Compile Include="FrmThi.Designer.cs">
       <DependentUpon>FrmThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmThongTinNhom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmThongTinNhom.Designer.cs">
+      <DependentUpon>FrmThongTinNhom.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTTSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,7 +240,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLThiBangLai.cs">
       <DependentUpon>QLThiBangLai.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="QLThiBangLai.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -258,6 +269,9 @@
     <Compile Include="UserControlDangNhap.Designer.cs">
       <DependentUpon>UserControlDangNhap.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BackgroundMain.resx">
+      <DependentUpon>BackgroundMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmThi.resx">
       <DependentUpon>FrmThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThongTinNhom.resx">
+      <DependentUpon>FrmThongTinNhom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTTSV.resx">
       <DependentUpon>FrmTTSV.cs</DependentUpon>

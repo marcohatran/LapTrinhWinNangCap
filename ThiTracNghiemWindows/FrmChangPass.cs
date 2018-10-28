@@ -25,11 +25,23 @@ namespace ThiTracNghiemWindows
         {
             InitializeComponent();
         }
+
+
         public FrmChangPass(string taikhoan)
         {
             this.taikhoan = taikhoan;
             InitializeComponent();
+            txt_mkxn.KeyDown += Txt_mkxn_KeyDown;
         }
+
+        private void Txt_mkxn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                btn_doimk_Click(sender, e);
+            }
+        }
+
         private void FrmChangPass_Load(object sender, EventArgs e)
         {
             DataTable dt = xl.cbtaikhoan();
@@ -84,6 +96,10 @@ namespace ThiTracNghiemWindows
             else
             {
                 MessageBox.Show(btn_doimk.Text.ToString() + "\t tài khoản của " + cb_taikhoan.Text.ToString() + "  thất bại");
+                txt_mkht.ResetText();
+                txt_mkmoi.ResetText();
+                txt_mkxn.ResetText();
+
             }
 
         }
@@ -105,5 +121,9 @@ namespace ThiTracNghiemWindows
             }
         }
 
+        private void txt_mkht_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

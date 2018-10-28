@@ -10,17 +10,18 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BLL;
 using System.IO;
+using LinqToSql;
 
 namespace ThiTracNghiemWindows
 {
     public partial class QLTTND : DevExpress.XtraEditors.XtraUserControl
     {
         XuLy xl = new XuLy();
+        DuLieu dl = new DuLieu();
         public QLTTND()
         {
             InitializeComponent();
             txt_hoten.KeyPress += Txt_hoten_KeyPress;
-            txt_email.TextChanged += Txt_email_TextChanged;
             txt_sdt.KeyPress += Txt_sdt_KeyPress;
         }
         ErrorProvider er = new ErrorProvider();
@@ -35,39 +36,9 @@ namespace ThiTracNghiemWindows
                 er.Clear();
         }
 
-       
-        private void Txt_email_TextChanged(object sender, EventArgs e)
-        {
-            if (IsMail())
-            {
-                er.Clear();
-            }
-            else
-            {
-                er.SetError(txt_email, "Mail không đúng định dạng");
-            }
-
-        }
-
-        private bool IsMail()
-        {
-            int index1 = this.Text.IndexOf("@");
-            if (index1 <= 0)
-            {
-                return false;
-            }
-            int index2 = this.Text.IndexOf(".com");
-            if (index2 <= 2) { return false; }
-            return true;
-        }
-
-        
         private void Txt_hoten_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLower(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+           
                 
         }
 
@@ -167,10 +138,18 @@ namespace ThiTracNghiemWindows
             }
             if (txt_mattnd.Enabled == true)
             {
+                int kttentk = dl.CheckTenTaiKhoan(txt_mattnd.Text);
+                if(kttentk==0)
+                {
+                   
+                    MessageBox.Show("Trùng tên tài khoản");
+                    return;
+                }
                 string nameHinh = SaveImage();
                 int kq = xl.themsinhvien(txt_mattnd.Text.ToString(), txt_hoten.Text.ToString(), date_ngaysinh.Text.ToString(), lk_gioitinh.Text.ToString(), txt_diachi.Text.ToString(), txt_sdt.Text.ToString(), txt_email.Text.ToString(), nameHinh);
                 if (kq == 0)
                 {
+                    
                     MessageBox.Show("Thành công");
                     loadgv();
                 }
@@ -198,7 +177,7 @@ namespace ThiTracNghiemWindows
 
         private string SaveImage()
         {
-            if (picNguoiDung.ImageLocation == null)
+            if (String.IsNullOrWhiteSpace(picNguoiDung.ImageLocation))
             {
                 return string.Empty;
             }

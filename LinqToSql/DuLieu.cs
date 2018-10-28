@@ -30,12 +30,6 @@ namespace LinqToSql
             }
             else
             {
-                var nd1 = from tt in thi.NguoiDungs
-                         join dk in thi.DangKis
-                         on tt.MaNguoiDung equals dk.MaNguoiDung
-                         where tt.MaNguoiDung == mand && dk.TinhTrang == true
-                         select dk;
-                if (nd1.Count() == 0)
                 {
                     return 2;
                 }
@@ -50,7 +44,6 @@ namespace LinqToSql
             var nd = from tt in thi.NguoiDungs
                      join dk in thi.DangKis
                      on tt.MaNguoiDung equals dk.MaNguoiDung
-                     where tt.MaNguoiDung == mand && dk.TinhTrang == true
                      select dk;
             if (nd.Count() == 0)
             {
@@ -65,6 +58,20 @@ namespace LinqToSql
                           where bd.TenBoDe == TenBoDe && bd.DaXoa !=true
                           select bd;
             if(kttenBD.Count()==0)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int CheckTenTaiKhoan(string tenTK)
+        {
+            var kttenTK = from tentk in thi.NguoiDungs
+                          where tentk.TaiKhoan == tenTK
+                          select tenTK;
+            if (kttenTK.Count() == 0)
             {
                 return 1;
             }

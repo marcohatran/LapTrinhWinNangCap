@@ -20,7 +20,18 @@ namespace ThiTracNghiemWindows
         public UserControlDangNhap()
         {
             InitializeComponent();
+            txtPass.KeyDown += TxtPass_KeyDown;
+            
         }
+
+        private void TxtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(sender, e);
+            }
+        }
+
         public string User { get; set; }
         private void btnExit_Click(object sender, EventArgs e)
         {

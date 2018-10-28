@@ -43,6 +43,8 @@ namespace ThiTracNghiemWindows
             btn_qltaikhoan.ItemClick += btn_qltaikhoan_ItemClick;
             btn_doimatkhau.ItemClick += btn_doimatkhau_ItemClick;
             taikhoandangnhap.Caption = taikhoan;
+
+            clsaddtab.AddTab(tab_hienthi, "", "", new BackgroundMain());
         }    
         void btn_doimatkhau_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -80,9 +82,13 @@ namespace ThiTracNghiemWindows
         }
         void btn_dangxuat_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Login lgin = new Login();
+            Login lgin = Program.loginform;
+            if(lgin==null)
+            {
+                lgin = new Login();
+            }
             lgin.Show();
-            this.Close();
+            this.Hide();
         }
         private void btn_dethi_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -103,10 +109,6 @@ namespace ThiTracNghiemWindows
             {// Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
                 clsaddtab.AddTab(tab_hienthi, "", "Quản lý câu hỏi", new FrmCauHoi());
             }
-        }
-        private void btn_dangxuat_ItemClick_1(object sender, ItemClickEventArgs e)
-        {
-
         }
         private void btn_qltaikhoan_ItemClick_1(object sender, ItemClickEventArgs e)
         {
@@ -220,6 +222,28 @@ namespace ThiTracNghiemWindows
             else
             {// Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
                 clsaddtab.AddTab(tab_hienthi, "", "Bộ đề", new QL_CauHoi());
+            }
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            int t = 0;
+            foreach (DevExpress.XtraTab.XtraTabPage tab in tab_hienthi.TabPages)
+            {
+                if (tab.Text == "Nhóm thực hiện")
+                {
+                    tab_hienthi.SelectedTabPage = tab;
+                    t = 1;
+                }
+            }
+            if (t == 1)
+            {
+
+            }
+            else
+            {
+                // Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
+                clsaddtab.AddTab(tab_hienthi, "", "Nhóm thực hiện", new FrmThongTinNhom());
             }
         }
     }
