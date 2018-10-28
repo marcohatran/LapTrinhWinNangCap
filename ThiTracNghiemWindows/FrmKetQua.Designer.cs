@@ -45,10 +45,10 @@
             // gv_ketqua
             // 
             this.gv_ketqua.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gv_ketqua.Location = new System.Drawing.Point(0, 271);
+            this.gv_ketqua.Location = new System.Drawing.Point(0, 111);
             this.gv_ketqua.MainView = this.gridView1;
             this.gv_ketqua.Name = "gv_ketqua";
-            this.gv_ketqua.Size = new System.Drawing.Size(948, 200);
+            this.gv_ketqua.Size = new System.Drawing.Size(948, 360);
             this.gv_ketqua.TabIndex = 0;
             this.gv_ketqua.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -131,12 +131,12 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 7;
             // 
-            // KetQua
+            // FrmKetQua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gv_ketqua);
-            this.Name = "KetQua";
+            this.Name = "FrmKetQua";
             this.Size = new System.Drawing.Size(948, 471);
             this.Load += new System.EventHandler(this.KetQua_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gv_ketqua)).EndInit();

@@ -13,12 +13,14 @@ using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Ribbon.Gallery;
 using BLL;
+using LinqToSql;
 
 namespace ThiTracNghiemWindows
 {
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         Addusercontrol clsaddtab = new Addusercontrol();
+        DuLieu dl = new DuLieu();
         string taikhoan;
         public FrmMain()
         {
@@ -29,13 +31,43 @@ namespace ThiTracNghiemWindows
             taikhoan = tk;
             InitializeComponent();
             FormClosed += FrmMain_FormClosed;
+            
         }
-
+        void LoadND(string tk)
+        {
+            List<ThongTinNguoiDung> a = dl.LoadDLND(tk);
+            if (a!=null)
+            {
+                lb_tendangnhap.Caption = "Chào mừng bạn " + a[0].HoTen + " đã đến với phần mềm!";
+            }
+            lb_ngaygio.Caption = DateTime.Now.ToString();
+        }
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
+        void LoadQuyenMain(string a)
+        {
+            btn_cauhinh.Enabled = btn_qltaikhoan.Enabled = btn_doimatkhau.Enabled = btn_qlysinhvien.Enabled = btn_admin.Enabled = btn_qlphong.Enabled = btn_qltheomon.Enabled = btn_dethi.Enabled = true;
+            List<NguoiDungManHinh> ndmh = dl.LoadQuyen(a);
+            for (int i = 0; i < ndmh.Count; i++)
+            {
+                if (ndmh[i].TinhTrang == false)
+                {
+                    if (i == 2)
+                    {
+                        btn_cauhinh.Enabled = false;
+                    }
+                    if (i == 3) { btn_qltaikhoan.Enabled = false; }
+                    if (i == 4) { btn_doimatkhau.Enabled = false; }
+                    if (i == 5) { btn_qlysinhvien.Enabled = btn_admin.Enabled = false; }
+                    if (i == 6) { btn_qlphong.Enabled = false; }
+                    if (i == 7) { btn_qltheomon.Enabled = false; }
+                    if (i == 8) { btn_dethi.Enabled = false; }
+                   // if (i == 9) { btn_qltaikhoan.Enabled = false; }
+                }
+            }
+        }
         private void FrmMain_Load(object sender, EventArgs e)
         {
             DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
@@ -43,8 +75,10 @@ namespace ThiTracNghiemWindows
             btn_qltaikhoan.ItemClick += btn_qltaikhoan_ItemClick;
             btn_doimatkhau.ItemClick += btn_doimatkhau_ItemClick;
             taikhoandangnhap.Caption = taikhoan;
-
+            LoadND(taikhoan);
             clsaddtab.AddTab(tab_hienthi, "", "", new BackgroundMain());
+            timer1.Start();
+            LoadQuyenMain(taikhoan);
         }    
         void btn_doimatkhau_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -245,6 +279,11 @@ namespace ThiTracNghiemWindows
                 // Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
                 clsaddtab.AddTab(tab_hienthi, "", "Nhóm thực hiện", new FrmThongTinNhom());
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lb_ngaygio.Caption = DateTime.Now.ToString();
         }
     }
 }

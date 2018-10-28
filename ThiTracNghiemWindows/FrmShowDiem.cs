@@ -30,10 +30,38 @@ namespace ThiTracNghiemWindows
             List<KetQua> kq = dlieu.LoadKQ(a);
             lb_caudung.Text = kq[0].DapAnDung.Value.ToString();
             lb_causai.Text = kq[0].DapAnSai.Value.ToString();
+            lb_ngaylam.Text = kq[0].NgayLam.Value.ToShortDateString();
+            lb_ketqua.Text = kq[0].GhiChu.ToString();
+            if (kq[0].DapAnDung.Value>15)
+            {
+                string nameImage = "Pass.png";
+                if (!string.IsNullOrWhiteSpace(nameImage))
+                {
+                    pic_kq.ImageLocation = "../../Images" + "/" + nameImage;
+                } 
+            }
+            else
+            {
+                string nameImage = "Fail.png";
+                if (!string.IsNullOrWhiteSpace(nameImage))
+                {
+                    pic_kq.ImageLocation = "../../Images" + "/" + nameImage;
+                } 
+            }
         }
         private void FrmShowDiem_Load(object sender, EventArgs e)
         {
             LoadKQ(ketqua);
+        }
+
+        private void btn_thoat_Click(object sender, EventArgs e)
+        {
+            Login lgin = Program.loginform;
+            if (lgin != null)
+            {
+                Program.loginform.Show();
+            }
+            this.Close();
         }
     }
 }

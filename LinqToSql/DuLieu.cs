@@ -9,6 +9,15 @@ namespace LinqToSql
     public class DuLieu
     {
         DataClasses1DataContext thi = new DataClasses1DataContext();
+        public List<NguoiDungManHinh> LoadQuyen(string taikhoan)
+        {
+            var a = (from nd in thi.NguoiDungs
+                     from mh in thi.NguoiDungManHinhs
+                     where nd.MaNguoiDung == mh.MaNguoiDung
+                     && nd.TaiKhoan.Trim() == taikhoan
+                     select mh).ToList<NguoiDungManHinh>();
+            return a.ToList<NguoiDungManHinh>();
+        }
         public List<LoaiCauHoi> LoadLoaiCH()
         {
             return thi.LoaiCauHois.Select(t => t).ToList<LoaiCauHoi>();
@@ -16,6 +25,15 @@ namespace LinqToSql
         public List<ThongTinNguoiDung> LoaiND(int mand)
         {
             return thi.ThongTinNguoiDungs.Where(t => t.MaNguoiDung == mand).ToList();
+        }
+        public List<ThongTinNguoiDung> LoadDLND(string taikhoan)
+        {
+            var a = (from nd in thi.NguoiDungs
+                     from tt in thi.ThongTinNguoiDungs
+                     where nd.MaNguoiDung == tt.MaNguoiDung
+                     && nd.TaiKhoan.Trim() == taikhoan
+                     select tt).ToList<ThongTinNguoiDung>();
+            return a.ToList<ThongTinNguoiDung>();
         }
         public int CheckDangKy(int mand)
         {
@@ -175,8 +193,22 @@ namespace LinqToSql
         }
         public List<KetQua> LoadKQ(int makq)
         {
-            return thi.KetQuas.Where(t => t.MaKetQua == makq).ToList<KetQua>();
-
+            KetQua kq = thi.KetQuas.Where(t => t.MaKetQua == makq).FirstOrDefault();
+            if (kq != null)
+            {
+                if (kq.DapAnDung >= 16)
+                {
+                    kq.GhiChu = "ĐẬU";
+                }
+                else
+                {
+                    kq.GhiChu = "RỚT";
+                }
+                thi.SubmitChanges();
+            }
+            var ketqua = thi.KetQuas.Where(t => t.MaKetQua == makq).ToList<KetQua>();
+            List<KetQua> kqua = ketqua.ToList<KetQua>();
+            return kqua;
         }
         public void XoaChiTietBoDe(int maBoDe)
         {
@@ -289,6 +321,7 @@ namespace LinqToSql
                     if (gt == 3 || gt == 1)
                     {
                         ts.RemoveAt(i);
+                        i--;
                     }
                 }
                 return ts.ToList();

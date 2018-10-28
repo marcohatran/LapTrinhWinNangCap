@@ -56,12 +56,12 @@ namespace DAL
             SqlDataAdapter dta = new SqlDataAdapter(slde, conn);
             DataTable dt = new DataTable();
             dta.Fill(dt);
-            string slch = "select ch.* from CauHoi ch,ChiTietBoDe ct where ch.MaCauHoi=ct.MaCauHoi and  ct.MaBoDe=" + int.Parse(dt.Rows[0][0].ToString().Trim()) + "and ch.DaXoa IS NULL or  ch.DaXoa in (0,'False')";
+            string slch = "select ch.* from CauHoi ch,ChiTietBoDe ct where ch.MaCauHoi=ct.MaCauHoi and  ct.MaBoDe=" + int.Parse(dt.Rows[0][0].ToString().Trim()) + "and (ch.DaXoa IS NULL or  ch.DaXoa in (0,'False'))";
             SqlDataAdapter dta1 = new SqlDataAdapter(slch, conn);
             DataTable dt1 = new DataTable();
             dta1.Fill(dt1);
             conn.Open();
-            string slde1 = "select * from DangKi, KetQua where DangKi.MaDangKy=KetQua.MaDangKy and DangKi.MaNguoiDung=" + manguoidung + " and KetQua.DaXoa in (0,'False') and DangKi.TinhTrang in (0,'False') or DangKi.TinhTrang IS NULL ";
+            string slde1 = "select * from DangKi, KetQua where DangKi.MaDangKy=KetQua.MaDangKy and DangKi.MaNguoiDung=" + manguoidung + " and KetQua.DaXoa in (0,'False') and (DangKi.TinhTrang in (0,'False') or DangKi.TinhTrang IS NULL )";
             SqlDataAdapter dta4 = new SqlDataAdapter(slde1, conn);
             DataTable dt4 = new DataTable();
             dta4.Fill(dt4);

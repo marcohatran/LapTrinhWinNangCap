@@ -70,7 +70,14 @@ namespace DAL
                 string addquyen = "insert into NguoiDungManHinh (MaNguoiDung,MaManHinh,TinhTrang) values ";
                 foreach (DataRow dr in dt1.Rows)
                 {
-                    addquyen += "(" + dt.Rows[0][0].ToString().Trim() + "," + dr["MaManHinh"].ToString().Trim() + ",0),";
+                    if (dr["MaManHinh"].ToString().Trim() == "2" || dr["MaManHinh"].ToString().Trim() == "2")
+                    {
+                        addquyen += "(" + dt.Rows[0][0].ToString().Trim() + "," + dr["MaManHinh"].ToString().Trim() + ",1),";
+                    }
+                    else
+                    {
+                        addquyen += "(" + dt.Rows[0][0].ToString().Trim() + "," + dr["MaManHinh"].ToString().Trim() + ",0),";
+                    }
                 }
                 addquyen = addquyen.Substring(0, addquyen.Length - 1);
                 SqlCommand cmd1 = new SqlCommand(addquyen, conn);
