@@ -15,7 +15,7 @@ namespace BLL
         public DemGio()
         {
             InitializeComponent();
-            //demh.Start();
+            demh.Start();
         }
         int m = 15;
         int s = 00;

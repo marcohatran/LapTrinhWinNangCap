@@ -86,13 +86,23 @@ namespace ThiTracNghiemWindows
         }
         private void btn_dethi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //DevExpress.XtraTab.XtraTabPage tab = new DevExpress.XtraTab.XtraTabPage();
-            //tab.Name = "QLDeThi";
-            //tab.Text = "Đề thi";
-            //FrmDeThi dethi = new FrmDeThi();
-            //tab.Controls.Add(dethi);
-            //dethi.Dock = DockStyle.Fill;
-            //tab_hienthi.TabPages.Add(tab);
+            int t = 0;
+            foreach (DevExpress.XtraTab.XtraTabPage tab in tab_hienthi.TabPages)
+            {
+                if (tab.Text == "Quản lý câu hỏi")
+                {
+                    tab_hienthi.SelectedTabPage = tab;
+                    t = 1;
+                }
+            }
+            if (t == 1)
+            {
+
+            }
+            else
+            {// Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
+                clsaddtab.AddTab(tab_hienthi, "", "Quản lý câu hỏi", new FrmCauHoi());
+            }
         }
         private void btn_dangxuat_ItemClick_1(object sender, ItemClickEventArgs e)
         {
@@ -173,7 +183,23 @@ namespace ThiTracNghiemWindows
         }
         private void btn_qlphong_ItemClick_1(object sender, ItemClickEventArgs e)
         {
+            int t = 0;
+            foreach (DevExpress.XtraTab.XtraTabPage tab in tab_hienthi.TabPages)
+            {
+                if (tab.Text == "Đăng kí thi")
+                {
+                    tab_hienthi.SelectedTabPage = tab;
+                    t = 1;
+                }
+            }
+            if (t == 1)
+            {
 
+            }
+            else
+            {// Nếu chưa có TAb này thì gọi hàm Addtab xây dựng ở trên để Add Tab con vào
+                clsaddtab.AddTab(tab_hienthi, "", "Đăng kí thi", new FrmQLDangKyThi());
+            }
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
