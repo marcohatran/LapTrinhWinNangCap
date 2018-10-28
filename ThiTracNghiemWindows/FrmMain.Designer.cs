@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_logout = new DevExpress.XtraBars.BarButtonItem();
@@ -119,9 +119,9 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group1";
             this.skinRibbonGalleryBarItem2.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.skinRibbonGalleryBarItem2.Id = 4;
             this.skinRibbonGalleryBarItem2.Name = "skinRibbonGalleryBarItem2";
             // 
@@ -380,11 +380,15 @@
             // 
             // tab_hienthi
             // 
+            this.tab_hienthi.Appearance.BackColor = System.Drawing.Color.White;
+            this.tab_hienthi.Appearance.Options.UseBackColor = true;
             this.tab_hienthi.Appearance.Options.UseFont = true;
             this.tab_hienthi.Appearance.Options.UseForeColor = true;
+            this.tab_hienthi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tab_hienthi.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
             this.tab_hienthi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab_hienthi.HeaderButtons = DevExpress.XtraTab.TabButtons.Close;
+            this.tab_hienthi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tab_hienthi.Location = new System.Drawing.Point(0, 143);
             this.tab_hienthi.Name = "tab_hienthi";
             this.tab_hienthi.Size = new System.Drawing.Size(1007, 348);

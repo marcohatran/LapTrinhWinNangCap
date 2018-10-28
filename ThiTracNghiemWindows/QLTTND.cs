@@ -19,10 +19,63 @@ namespace ThiTracNghiemWindows
         public QLTTND()
         {
             InitializeComponent();
+            txt_hoten.KeyPress += Txt_hoten_KeyPress;
+            txt_email.TextChanged += Txt_email_TextChanged;
+            txt_sdt.KeyPress += Txt_sdt_KeyPress;
         }
+        ErrorProvider er = new ErrorProvider();
+        private void Txt_sdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                er.SetError(txt_sdt, "Không nhập chữ");
+            }
+            else
+                er.Clear();
+        }
+
+       
+        private void Txt_email_TextChanged(object sender, EventArgs e)
+        {
+            if (IsMail())
+            {
+                er.Clear();
+            }
+            else
+            {
+                er.SetError(txt_email, "Mail không đúng định dạng");
+            }
+
+        }
+
+        private bool IsMail()
+        {
+            int index1 = this.Text.IndexOf("@");
+            if (index1 <= 0)
+            {
+                return false;
+            }
+            int index2 = this.Text.IndexOf(".com");
+            if (index2 <= 2) { return false; }
+            return true;
+        }
+
+        
+        private void Txt_hoten_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLower(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+                
+        }
+
         void loadgv()
         {
             gv_sv.DataSource = xl.loadgv();
+
+
         }
         private void QLTTND_Load(object sender, EventArgs e)
         {
@@ -32,6 +85,7 @@ namespace ThiTracNghiemWindows
             btn_luu.Enabled = false;
             picNguoiDung.Enabled = false;
             txt_mattnd.Enabled = date_ngaysinh.Enabled = txt_hoten.Enabled = txt_diachi.Enabled = lk_gioitinh.Enabled = txt_email.Enabled = txt_sdt.Enabled = false;
+           
         }
         private void gv_dssv_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
@@ -192,5 +246,8 @@ namespace ThiTracNghiemWindows
                 }
             }
         }
+        
+
+       
     }
 }
