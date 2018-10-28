@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQLnguoidung));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btn_change = new DevExpress.XtraEditors.SimpleButton();
             this.rd_false = new System.Windows.Forms.RadioButton();
@@ -74,6 +75,9 @@
             // 
             // btn_change
             // 
+            this.btn_change.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_change.Appearance.Options.UseFont = true;
+            this.btn_change.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_change.ImageOptions.Image")));
             this.btn_change.Location = new System.Drawing.Point(123, 79);
             this.btn_change.Name = "btn_change";
             this.btn_change.Size = new System.Drawing.Size(183, 32);

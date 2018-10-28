@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label tenBoDeLabel;
             System.Windows.Forms.Label ghiChuLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBoDe));
             this.qLThiBangLai = new ThiTracNghiemWindows.QLThiBangLai();
-            this.boDeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.boDeBindingSource = new System.Windows.Forms.BindingSource();
             this.boDeTableAdapter = new ThiTracNghiemWindows.QLThiBangLaiTableAdapters.BoDeTableAdapter();
             this.tableAdapterManager = new ThiTracNghiemWindows.QLThiBangLaiTableAdapters.TableAdapterManager();
-            this.boDeBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.boDeBindingNavigator = new System.Windows.Forms.BindingNavigator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -96,7 +95,7 @@
             // ghiChuLabel
             // 
             ghiChuLabel.AutoSize = true;
-            ghiChuLabel.Location = new System.Drawing.Point(209, 50);
+            ghiChuLabel.Location = new System.Drawing.Point(231, 50);
             ghiChuLabel.Name = "ghiChuLabel";
             ghiChuLabel.Size = new System.Drawing.Size(45, 13);
             ghiChuLabel.TabIndex = 6;
@@ -309,19 +308,21 @@
             this.tenBoDeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.boDeBindingSource, "TenBoDe", true));
             this.tenBoDeTextEdit.Location = new System.Drawing.Point(85, 47);
             this.tenBoDeTextEdit.Name = "tenBoDeTextEdit";
-            this.tenBoDeTextEdit.Size = new System.Drawing.Size(100, 20);
+            this.tenBoDeTextEdit.Size = new System.Drawing.Size(126, 20);
             this.tenBoDeTextEdit.TabIndex = 5;
             // 
             // ghiChuTextEdit
             // 
             this.ghiChuTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.boDeBindingSource, "GhiChu", true));
-            this.ghiChuTextEdit.Location = new System.Drawing.Point(277, 47);
+            this.ghiChuTextEdit.Location = new System.Drawing.Point(291, 47);
             this.ghiChuTextEdit.Name = "ghiChuTextEdit";
-            this.ghiChuTextEdit.Size = new System.Drawing.Size(100, 20);
+            this.ghiChuTextEdit.Size = new System.Drawing.Size(132, 20);
             this.ghiChuTextEdit.TabIndex = 7;
             // 
             // btn_sua
             // 
+            this.btn_sua.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sua.Appearance.Options.UseFont = true;
             this.btn_sua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_sua.ImageOptions.Image")));
             this.btn_sua.Location = new System.Drawing.Point(270, 97);
             this.btn_sua.Name = "btn_sua";
@@ -332,6 +333,8 @@
             // 
             // btn_xoa
             // 
+            this.btn_xoa.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xoa.Appearance.Options.UseFont = true;
             this.btn_xoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_xoa.ImageOptions.Image")));
             this.btn_xoa.Location = new System.Drawing.Point(150, 97);
             this.btn_xoa.Name = "btn_xoa";
@@ -342,6 +345,8 @@
             // 
             // btn_them
             // 
+            this.btn_them.Appearance.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_them.Appearance.Options.UseFont = true;
             this.btn_them.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_them.ImageOptions.Image")));
             this.btn_them.Location = new System.Drawing.Point(30, 97);
             this.btn_them.Name = "btn_them";
@@ -418,6 +423,10 @@
             // 
             // btn_capphat
             // 
+            this.btn_capphat.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_capphat.Appearance.Options.UseFont = true;
+            this.btn_capphat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_capphat.ImageOptions.Image = global::ThiTracNghiemWindows.Properties.Resources.Document_Add_icon;
             this.btn_capphat.Location = new System.Drawing.Point(498, 87);
             this.btn_capphat.Name = "btn_capphat";
             this.btn_capphat.Size = new System.Drawing.Size(168, 48);
@@ -427,6 +436,9 @@
             // 
             // btn_xoact
             // 
+            this.btn_xoact.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xoact.Appearance.Options.UseFont = true;
+            this.btn_xoact.ImageOptions.Image = global::ThiTracNghiemWindows.Properties.Resources.red_document_cross_icon;
             this.btn_xoact.Location = new System.Drawing.Point(715, 87);
             this.btn_xoact.Name = "btn_xoact";
             this.btn_xoact.Size = new System.Drawing.Size(168, 48);

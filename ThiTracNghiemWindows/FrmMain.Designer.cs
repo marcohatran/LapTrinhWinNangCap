@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_logout = new DevExpress.XtraBars.BarButtonItem();
@@ -50,6 +50,7 @@
             this.btn_cauhinh = new DevExpress.XtraBars.BarButtonItem();
             this.btn_dethi = new DevExpress.XtraBars.BarButtonItem();
             this.taikhoandangnhap = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -63,10 +64,9 @@
             this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tab_hienthi = new DevExpress.XtraTab.XtraTabControl();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tab_hienthi)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +105,7 @@
             this.ribbonPage7,
             this.ribbonPage8});
             this.ribbon.Size = new System.Drawing.Size(1007, 143);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.StatusBar = this.ribbonStatusBar1;
             // 
             // btn_logout
             // 
@@ -119,9 +119,9 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group1";
             this.skinRibbonGalleryBarItem2.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
             this.skinRibbonGalleryBarItem2.Id = 4;
             this.skinRibbonGalleryBarItem2.Name = "skinRibbonGalleryBarItem2";
             // 
@@ -266,6 +266,13 @@
             this.taikhoandangnhap.Id = 23;
             this.taikhoandangnhap.Name = "taikhoandangnhap";
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 25;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -355,13 +362,6 @@
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.Text = "ribbonPageGroup10";
             // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(1, 316);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbon;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(918, 27);
-            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
@@ -371,13 +371,24 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1007, 31);
             // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(1, 316);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbon;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(918, 27);
+            // 
             // tab_hienthi
             // 
+            this.tab_hienthi.Appearance.BackColor = System.Drawing.Color.White;
+            this.tab_hienthi.Appearance.Options.UseBackColor = true;
             this.tab_hienthi.Appearance.Options.UseFont = true;
             this.tab_hienthi.Appearance.Options.UseForeColor = true;
+            this.tab_hienthi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tab_hienthi.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
             this.tab_hienthi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab_hienthi.HeaderButtons = DevExpress.XtraTab.TabButtons.Close;
+            this.tab_hienthi.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tab_hienthi.Location = new System.Drawing.Point(0, 143);
             this.tab_hienthi.Name = "tab_hienthi";
             this.tab_hienthi.Size = new System.Drawing.Size(1007, 348);
@@ -385,13 +396,6 @@
             this.tab_hienthi.CloseButtonClick += new System.EventHandler(this.tab_hienthi_CloseButtonClick);
             this.tab_hienthi.Click += new System.EventHandler(this.tab_hienthi_Click);
             this.tab_hienthi.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tab_hienthi_ControlAdded);
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "barButtonItem2";
-            this.barButtonItem2.Id = 25;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // FrmMain
             // 
