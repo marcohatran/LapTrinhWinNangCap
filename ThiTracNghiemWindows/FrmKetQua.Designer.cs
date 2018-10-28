@@ -55,10 +55,10 @@
             // gv_ketqua
             // 
             this.gv_ketqua.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gv_ketqua.Location = new System.Drawing.Point(0, 107);
+            this.gv_ketqua.Location = new System.Drawing.Point(0, 111);
             this.gv_ketqua.MainView = this.gridView1;
             this.gv_ketqua.Name = "gv_ketqua";
-            this.gv_ketqua.Size = new System.Drawing.Size(948, 364);
+            this.gv_ketqua.Size = new System.Drawing.Size(948, 360);
             this.gv_ketqua.TabIndex = 0;
             this.gv_ketqua.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
