@@ -101,3 +101,14 @@ E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csprojAssemblyReference.ca
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.dll
 E:\LTWDNC\DoAn\ThiTracNghiemWindows\BLL\obj\Debug\BLL.pdb
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\bin\Debug\BLL.dll
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\bin\Debug\BLL.pdb
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\bin\Debug\DAL.dll
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\bin\Debug\DAL.pdb
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.CauTraLoi.resources
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.DemGio.resources
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.csproj.GenerateResource.Cache
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.dll.licenses
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.dll
+D:\06dhth5\BaiTapWindownangcao\DoAn\LapTrinhWinNangCap\BLL\obj\Debug\BLL.pdb

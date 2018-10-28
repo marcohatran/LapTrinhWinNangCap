@@ -162,8 +162,6 @@ namespace LinqToSql
         {
             return thi.KetQuas.Where(t => t.MaKetQua == makq).ToList<KetQua>();
         }
-
-
         public void XoaChiTietBoDe (int maBoDe)
         {
             var listCT = thi.ChiTietBoDes.Where(t => t.MaBoDe == maBoDe).ToList();
@@ -172,6 +170,183 @@ namespace LinqToSql
                 chiTiet.DaXoa = true;
             }
             thi.SubmitChanges();
+        }
+
+        //Phần xữ lý đăng kí thi 
+        public int CheckRot(int madk)
+        {
+            var a = thi.KetQuas.Where(t => t.MaDangKy == madk);
+            if (a == null)
+            {
+                return 1;
+            }
+            else
+            {
+                foreach (var x in a)
+                {
+                    if (x.DapAnDung > 15)
+                    {
+                        return 3;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
+                }
+                return 4;
+            }
+            
+        }
+        public int CheckDangKi(int mand)
+        {
+            int giatritrave = 0;
+            var a=thi.DangKis.Where(t=>t.MaNguoiDung==mand).ToList<DangKi>();
+            //Trường hợp chưa đăng kí thi
+            if (a.Count==0)
+            {
+                giatritrave= 0;
+            }
+            //Có đăng kí thi và xét thêm trường hợp bên Kết Quả
+            else
+            {
+                //TH đăng kí rồi mà chưa thi
+                if (a[0].TinhTrang == false)
+                {
+                    giatritrave = 1;
+                }
+                else
+                {
+                    for (int i = 0; i < a.Count; i++)
+                    {
+                        int x = CheckRot(a[i].MaDangKy);
+                        //TH Đậu
+                        if (x == 3)
+                        {
+                            giatritrave = 3;
+                            break;
+                        }
+                        //TH rớt
+                        if (x == 2)
+                        {
+                            giatritrave = 2;
+                            break;
+                        }
+                    }
+                }
+            }
+            return giatritrave;
+        }
+        public List<ThongTinNguoiDung> LoadChuaDK(int gtri,int stt)
+        {
+            if (stt == 0)
+            {
+                ThongTinNguoiDung ttnd = new ThongTinNguoiDung();
+                var ts = (from tt in thi.ThongTinNguoiDungs
+                          from nd in thi.NguoiDungs
+                          from mh in thi.NguoiDungManHinhs
+                          where tt.MaNguoiDung == nd.MaNguoiDung && nd.MaNguoiDung == mh.MaNguoiDung
+                          && mh.MaManHinh == 2 && mh.TinhTrang == true && nd.MaNguoiDung != 1
+                          select tt).ToList<ThongTinNguoiDung>();
+                for (int tx = 0; tx < ts.Count(); tx++)
+                {
+                    int gt = CheckDangKi(int.Parse(ts[tx].MaNguoiDung.Value.ToString()));
+                    if (gt == 3 || gt == 1)
+                    {
+                        ts.RemoveAt(tx);
+                        tx--;
+                    }
+                }
+                return ts.ToList();
+            }
+            else
+            {
+                ThongTinNguoiDung ttnd = new ThongTinNguoiDung();
+                var ts = (from tt in thi.ThongTinNguoiDungs
+                          from nd in thi.NguoiDungs
+                          from mh in thi.NguoiDungManHinhs
+                          where tt.MaNguoiDung == nd.MaNguoiDung && nd.MaNguoiDung == mh.MaNguoiDung
+                          && mh.MaManHinh == 2 && mh.TinhTrang == true && nd.MaNguoiDung ==gtri
+                          select tt).ToList<ThongTinNguoiDung>();
+                for (int i = 0; i < ts.Count; i++)
+                {
+                    int gt = CheckDangKi(int.Parse(ts[i].MaNguoiDung.Value.ToString()));
+                    if (gt == 3 || gt == 1)
+                    {
+                        ts.RemoveAt(i);
+                    }
+                }
+                return ts.ToList();
+            }
+        }
+        public List<ThongTinNguoiDung> LoadNDThi(int madk)
+        {
+            var ttin = (from dk in thi.DangKis
+                        from nd in thi.NguoiDungs
+                        from tt in thi.ThongTinNguoiDungs
+                        where dk.MaDangKy == madk && nd.MaNguoiDung == dk.MaNguoiDung && nd.MaNguoiDung == tt.MaNguoiDung
+                        select tt).ToList();
+            return ttin;
+        }
+        public List<DK> LoadDK()
+        {
+            List<DK> dsdk = new List<DK>();
+            var ts = (from tt in thi.ThongTinNguoiDungs
+                      from nd in thi.NguoiDungs
+                      from dk in thi.DangKis
+                      from mh in thi.NguoiDungManHinhs
+                      where tt.MaNguoiDung == nd.MaNguoiDung && nd.MaNguoiDung == mh.MaNguoiDung
+                      && mh.MaManHinh == 2 && mh.TinhTrang == true && nd.MaNguoiDung != 1 && dk.MaNguoiDung == nd.MaNguoiDung
+                      select new { MaDK = dk.MaDangKy, MaDe = dk.MaBoDe, HoTen = tt.HoTen, Mail = tt.Email, TT = dk.TinhTrang, Ngay = dk.NgayDangKy }).ToList();
+            foreach (var gt in ts)
+            {
+                DK dk = new DK(gt.MaDK, gt.MaDe, gt.HoTen, gt.Mail, gt.TT, gt.Ngay);
+                dsdk.Add(dk);
+            }
+            return dsdk;
+            
+        }
+
+        public List<LoaiCauHoi> LoaddlCH()
+        {
+            return thi.LoaiCauHois.Select(t => t).ToList<LoaiCauHoi>();
+        }
+        public List<CauHoi> LoadCauHoi()
+        {
+            return thi.CauHois.Where(t=>t.DaXoa!=true).ToList<CauHoi>();
+        }
+        public void Them(int them, int loaich, string ndch, string a, string b, string c, string d, string dadung, string hinh)
+        {
+            if (them == 0)
+            {
+                CauHoi ch = new CauHoi();
+                ch.MaLoaiCauHoi = loaich;
+                ch.NoiDungCauHoi = ndch;
+                ch.DapAnA = a;
+                ch.DapAnB = b;
+                ch.DapAnC = c;
+                ch.DapAnD = d;
+                ch.DapAnDung = dadung;
+                ch.HinhAnh = hinh;
+                ch.DaXoa = false;
+                thi.CauHois.InsertOnSubmit(ch);
+                thi.SubmitChanges();
+            }
+            else
+            {
+                CauHoi ch = thi.CauHois.Where(t => t.MaCauHoi == them).FirstOrDefault();
+                if (ch != null)
+                {
+                    ch.NoiDungCauHoi = ndch;
+                    ch.DapAnA = a;
+                    ch.DapAnB = b;
+                    ch.DapAnC = c;
+                    ch.DapAnD = d;
+                    ch.DapAnDung = dadung;
+                    ch.HinhAnh = hinh;
+                    ch.DaXoa = false;
+                    thi.SubmitChanges();
+                }
+            }
         }
     }
 }

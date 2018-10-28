@@ -251,7 +251,7 @@
             // 
             // btn_dethi
             // 
-            this.btn_dethi.Caption = "Đề thi";
+            this.btn_dethi.Caption = "Ngân hàng câu hỏi";
             this.btn_dethi.Id = 22;
             this.btn_dethi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_dethi.ImageOptions.Image")));
             this.btn_dethi.LargeWidth = 80;
