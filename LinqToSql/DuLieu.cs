@@ -329,7 +329,7 @@ namespace LinqToSql
         public List<CauHoi> LoadCauHoi()
         {
 
-            return thi.CauHois.Where(t=>t.DaXoa!=true || t.DaXoa==null).ToList<CauHoi>();
+            return thi.CauHois.Where(t => t.DaXoa != true || t.DaXoa == null).ToList<CauHoi>();
         }
         public void Them(int them, int loaich, string ndch, string a, string b, string c, string d, string dadung, string hinh)
         {
@@ -378,7 +378,7 @@ namespace LinqToSql
             }
         }
 
-        public List<KQ> ShowKQ()
+        public List<KQ> ShowKQ(DateTime start,DateTime end)
         {
             List<KQ> diem = new List<KQ>();
             var kqua = (from kq in thi.KetQuas
@@ -387,6 +387,8 @@ namespace LinqToSql
                         from tt in thi.ThongTinNguoiDungs
                         where kq.MaDangKy == dk.MaDangKy && dk.MaNguoiDung == nd.MaNguoiDung
                         && nd.MaNguoiDung == tt.MaNguoiDung
+                        && start.Date <= kq.NgayLam.Value.Date
+                                    && kq.NgayLam.Value.Date <= end.Date
                         select new
                         {
                             MaDK = dk.MaDangKy,
@@ -397,7 +399,7 @@ namespace LinqToSql
                             NgayLam = kq.NgayLam,
                             DapanDung = kq.DapAnDung,
                             DapanSai = kq.DapAnSai
-                        }).ToList();
+                        });
             foreach (var gt in kqua)
             {
                 KQ dk = new KQ(gt.MaDK, gt.GhiChu, gt.MaKQ, gt.HoTen, gt.NgayDK, gt.NgayLam, gt.DapanDung, gt.DapanSai);
