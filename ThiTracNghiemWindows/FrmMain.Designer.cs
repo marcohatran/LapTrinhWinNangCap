@@ -46,7 +46,7 @@
             this.btn_qlphong = new DevExpress.XtraBars.BarButtonItem();
             this.btn_qltheomon = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem4 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.lb_ngaygio = new DevExpress.XtraBars.BarStaticItem();
             this.btn_cauhinh = new DevExpress.XtraBars.BarButtonItem();
             this.btn_dethi = new DevExpress.XtraBars.BarButtonItem();
             this.taikhoandangnhap = new DevExpress.XtraBars.BarStaticItem();
@@ -54,6 +54,10 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.lb_tendangnhap = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,7 +72,9 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tab_hienthi = new DevExpress.XtraTab.XtraTabControl();
+            this.timer1 = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tab_hienthi)).BeginInit();
             this.SuspendLayout();
@@ -93,14 +99,18 @@
             this.btn_qlphong,
             this.btn_qltheomon,
             this.skinRibbonGalleryBarItem4,
-            this.barStaticItem1,
+            this.lb_ngaygio,
             this.btn_cauhinh,
             this.btn_dethi,
             this.taikhoandangnhap,
             this.barButtonItem2,
             this.barButtonItem3,
             this.barButtonItem4,
-            this.barButtonItem5});
+            this.barButtonItem5,
+            this.lb_tendangnhap,
+            this.barStaticItem1,
+            this.barStaticItem2,
+            this.barStaticItem3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 32;
             this.ribbon.Name = "ribbon";
@@ -110,7 +120,7 @@
             this.ribbonPage7,
             this.ribbonPage8});
             this.ribbon.Size = new System.Drawing.Size(1007, 143);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.StatusBar = this.ribbonStatusBar1;
             // 
             // btn_logout
             // 
@@ -238,12 +248,12 @@
             this.skinRibbonGalleryBarItem4.Id = 19;
             this.skinRibbonGalleryBarItem4.Name = "skinRibbonGalleryBarItem4";
             // 
-            // barStaticItem1
+            // lb_ngaygio
             // 
-            this.barStaticItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticItem1.Caption = "Trần Quang Thoại";
-            this.barStaticItem1.Id = 20;
-            this.barStaticItem1.Name = "barStaticItem1";
+            this.lb_ngaygio.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lb_ngaygio.Caption = "Trần Quang Thoại";
+            this.lb_ngaygio.Id = 20;
+            this.lb_ngaygio.Name = "lb_ngaygio";
             // 
             // btn_cauhinh
             // 
@@ -299,6 +309,33 @@
             this.barButtonItem5.Id = 28;
             this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
             this.barButtonItem5.Name = "barButtonItem5";
+            // 
+            // lb_tendangnhap
+            // 
+            this.lb_tendangnhap.Caption = "barStaticItem2";
+            this.lb_tendangnhap.Id = 32;
+            this.lb_tendangnhap.Name = "lb_tendangnhap";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem1.Caption = "Trần Quang Thoại";
+            this.barStaticItem1.Id = 36;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // barStaticItem2
+            // 
+            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem2.Caption = "Trịnh Thị Anh";
+            this.barStaticItem2.Id = 37;
+            this.barStaticItem2.Name = "barStaticItem2";
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem3.Caption = "Đặng Minh Dương";
+            this.barStaticItem3.Id = 38;
+            this.barStaticItem3.Name = "barStaticItem3";
             // 
             // ribbonPage1
             // 
@@ -383,21 +420,25 @@
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "Thông tin";
             // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.lb_ngaygio);
+            this.ribbonStatusBar.ItemLinks.Add(this.taikhoandangnhap);
+            this.ribbonStatusBar.ItemLinks.Add(this.lb_tendangnhap);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem2);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem3);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 491);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1007, 31);
+            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.Location = new System.Drawing.Point(1, 316);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbon;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(918, 27);
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
-            this.ribbonStatusBar.ItemLinks.Add(this.taikhoandangnhap);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 491);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1007, 31);
             // 
             // tab_hienthi
             // 
@@ -417,6 +458,12 @@
             this.tab_hienthi.CloseButtonClick += new System.EventHandler(this.tab_hienthi_CloseButtonClick);
             this.tab_hienthi.Click += new System.EventHandler(this.tab_hienthi_Click);
             this.tab_hienthi.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tab_hienthi_ControlAdded);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmMain
             // 
@@ -482,7 +529,7 @@
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem lb_ngaygio;
         private DevExpress.XtraTab.XtraTabControl tab_hienthi;
         private DevExpress.XtraBars.BarButtonItem btn_cauhinh;
         private DevExpress.XtraBars.BarButtonItem btn_dethi;
@@ -493,5 +540,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarStaticItem lb_tendangnhap;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
