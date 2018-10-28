@@ -176,6 +176,7 @@ namespace LinqToSql
         public List<KetQua> LoadKQ(int makq)
         {
             return thi.KetQuas.Where(t => t.MaKetQua == makq).ToList<KetQua>();
+
         }
         public void XoaChiTietBoDe(int maBoDe)
         {
@@ -327,7 +328,8 @@ namespace LinqToSql
         }
         public List<CauHoi> LoadCauHoi()
         {
-            return thi.CauHois.Where(t => t.DaXoa != true).ToList<CauHoi>();
+
+            return thi.CauHois.Where(t=>t.DaXoa!=true || t.DaXoa==null).ToList<CauHoi>();
         }
         public void Them(int them, int loaich, string ndch, string a, string b, string c, string d, string dadung, string hinh)
         {
@@ -357,11 +359,51 @@ namespace LinqToSql
                     ch.DapAnC = c;
                     ch.DapAnD = d;
                     ch.DapAnDung = dadung;
-                    ch.HinhAnh = hinh;
+                    if (hinh != "")
+                    {
+                        ch.HinhAnh = hinh;
+                    }
                     ch.DaXoa = false;
                     thi.SubmitChanges();
                 }
             }
+        }
+        public void Xoa(int MaCH)
+        {
+            CauHoi ch = thi.CauHois.Where(t => t.MaCauHoi == MaCH).FirstOrDefault();
+            if (ch != null)
+            {
+                ch.DaXoa = true;
+                thi.SubmitChanges();
+            }
+        }
+
+        public List<KQ> ShowKQ()
+        {
+            List<KQ> diem = new List<KQ>();
+            var kqua = (from kq in thi.KetQuas
+                        from dk in thi.DangKis
+                        from nd in thi.NguoiDungs
+                        from tt in thi.ThongTinNguoiDungs
+                        where kq.MaDangKy == dk.MaDangKy && dk.MaNguoiDung == nd.MaNguoiDung
+                        && nd.MaNguoiDung == tt.MaNguoiDung
+                        select new
+                        {
+                            MaDK = dk.MaDangKy,
+                            MaKQ = kq.MaKetQua,
+                            GhiChu = kq.GhiChu,
+                            HoTen = tt.HoTen,
+                            NgayDK = dk.NgayDangKy,
+                            NgayLam = kq.NgayLam,
+                            DapanDung = kq.DapAnDung,
+                            DapanSai = kq.DapAnSai
+                        }).ToList();
+            foreach (var gt in kqua)
+            {
+                KQ dk = new KQ(gt.MaDK, gt.GhiChu, gt.MaKQ, gt.HoTen, gt.NgayDK, gt.NgayLam, gt.DapanDung, gt.DapanSai);
+                diem.Add(dk);
+            }
+            return diem;
         }
     }
 }
