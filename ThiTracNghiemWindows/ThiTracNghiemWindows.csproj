@@ -233,12 +233,6 @@
     <Compile Include="FrmQLtheophong.Designer.cs">
       <DependentUpon>FrmQLtheophong.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReport.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmReport.Designer.cs">
-      <DependentUpon>FrmReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmShowDiem.cs">
       <SubType>Form</SubType>
     </Compile>
