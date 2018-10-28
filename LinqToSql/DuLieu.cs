@@ -13,9 +13,9 @@ namespace LinqToSql
         {
             return thi.LoaiCauHois.Select(t => t).ToList<LoaiCauHoi>();
         }
-        public List<ThongTinNguoiDung> LoaiND( int mand)
+        public List<ThongTinNguoiDung> LoaiND(int mand)
         {
-            return thi.ThongTinNguoiDungs.Where(t => t.MaNguoiDung == mand).ToList() ;
+            return thi.ThongTinNguoiDungs.Where(t => t.MaNguoiDung == mand).ToList();
         }
         public int CheckDangKy(int mand)
         {
@@ -30,20 +30,27 @@ namespace LinqToSql
             }
             else
             {
+                var nd1 = from tt in thi.NguoiDungs
+                          join dk in thi.DangKis
+                          on tt.MaNguoiDung equals dk.MaNguoiDung
+                          where tt.MaNguoiDung == mand && dk.TinhTrang == true
+                          select dk;
+                if (nd1.Count() == 0)
                 {
                     return 2;
                 }
                 else
                     return 0;
             }
-                
-                    
+
+
         }
         public int CheckDaThi(int mand)
         {
             var nd = from tt in thi.NguoiDungs
                      join dk in thi.DangKis
                      on tt.MaNguoiDung equals dk.MaNguoiDung
+                     where tt.MaNguoiDung == mand && dk.TinhTrang == true
                      select dk;
             if (nd.Count() == 0)
             {
@@ -55,9 +62,9 @@ namespace LinqToSql
         public int CheckTenBoDe(string TenBoDe)
         {
             var kttenBD = from bd in thi.BoDes
-                          where bd.TenBoDe == TenBoDe && bd.DaXoa !=true
+                          where bd.TenBoDe == TenBoDe && bd.DaXoa != true
                           select bd;
-            if(kttenBD.Count()==0)
+            if (kttenBD.Count() == 0)
             {
                 return 1;
             }
@@ -82,7 +89,8 @@ namespace LinqToSql
         }
         public int DangKyThi(int mand)
         {
-            try {
+            try
+            {
                 DangKi a = new DangKi();
                 string ngay = DateTime.Today.Day.ToString();
                 string thang = DateTime.Today.Month.ToString();
@@ -112,15 +120,15 @@ namespace LinqToSql
         {
             return thi.CauHois.Where(t => t.MaCauHoi == mach).ToList<CauHoi>();
         }
-        public void UpdateCTKQ(int mactkq,string kq)
+        public void UpdateCTKQ(int mactkq, string kq)
         {
             ChiTietKetQua ct = thi.ChiTietKetQuas.Where(t => t.MaChiTietKQ == mactkq).FirstOrDefault();
             if (ct != null)
             {
-                
+
                 ct.DapAnChon = kq;
                 string[] dapan = kq.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
-                
+
                 CauHoi ch = thi.CauHois.Where(t => t.MaCauHoi == ct.MaCauHoi).FirstOrDefault();
                 string dp = ch.DapAnDung.ToString().Trim() + ",";
                 string[] source = dp.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -143,20 +151,20 @@ namespace LinqToSql
                 thi.SubmitChanges();
             }
         }
-        public void UpdateKQ(int makq,int mand)
+        public void UpdateKQ(int makq, int mand)
         {
             var dung = from kq in thi.ChiTietKetQuas
-                     where kq.MaKetQua == makq && kq.KetQua==true
-                     select kq;
+                       where kq.MaKetQua == makq && kq.KetQua == true
+                       select kq;
             var sai = from kq in thi.ChiTietKetQuas
-                     where kq.MaKetQua == makq && kq.KetQua==false
-                     select kq;
+                      where kq.MaKetQua == makq && kq.KetQua == false
+                      select kq;
             KetQua ketqua = thi.KetQuas.Where(t => t.MaKetQua == makq).FirstOrDefault();
             if (ketqua != null)
             {
                 ketqua.DapAnSai = sai.Count();
                 ketqua.DapAnDung = dung.Count();
-                
+
             }
             DangKi dangki = thi.DangKis.Where(t => t.MaNguoiDung == mand && t.TinhTrang == false).FirstOrDefault();
             if (dangki != null)
@@ -169,7 +177,7 @@ namespace LinqToSql
         {
             return thi.KetQuas.Where(t => t.MaKetQua == makq).ToList<KetQua>();
         }
-        public void XoaChiTietBoDe (int maBoDe)
+        public void XoaChiTietBoDe(int maBoDe)
         {
             var listCT = thi.ChiTietBoDes.Where(t => t.MaBoDe == maBoDe).ToList();
             foreach (var chiTiet in listCT)
@@ -202,16 +210,16 @@ namespace LinqToSql
                 }
                 return 4;
             }
-            
+
         }
         public int CheckDangKi(int mand)
         {
             int giatritrave = 0;
-            var a=thi.DangKis.Where(t=>t.MaNguoiDung==mand).ToList<DangKi>();
+            var a = thi.DangKis.Where(t => t.MaNguoiDung == mand).ToList<DangKi>();
             //Trường hợp chưa đăng kí thi
-            if (a.Count==0)
+            if (a.Count == 0)
             {
-                giatritrave= 0;
+                giatritrave = 0;
             }
             //Có đăng kí thi và xét thêm trường hợp bên Kết Quả
             else
@@ -243,7 +251,7 @@ namespace LinqToSql
             }
             return giatritrave;
         }
-        public List<ThongTinNguoiDung> LoadChuaDK(int gtri,int stt)
+        public List<ThongTinNguoiDung> LoadChuaDK(int gtri, int stt)
         {
             if (stt == 0)
             {
@@ -272,7 +280,7 @@ namespace LinqToSql
                           from nd in thi.NguoiDungs
                           from mh in thi.NguoiDungManHinhs
                           where tt.MaNguoiDung == nd.MaNguoiDung && nd.MaNguoiDung == mh.MaNguoiDung
-                          && mh.MaManHinh == 2 && mh.TinhTrang == true && nd.MaNguoiDung ==gtri
+                          && mh.MaManHinh == 2 && mh.TinhTrang == true && nd.MaNguoiDung == gtri
                           select tt).ToList<ThongTinNguoiDung>();
                 for (int i = 0; i < ts.Count; i++)
                 {
@@ -310,7 +318,7 @@ namespace LinqToSql
                 dsdk.Add(dk);
             }
             return dsdk;
-            
+
         }
 
         public List<LoaiCauHoi> LoaddlCH()
@@ -319,7 +327,7 @@ namespace LinqToSql
         }
         public List<CauHoi> LoadCauHoi()
         {
-            return thi.CauHois.Where(t=>t.DaXoa!=true).ToList<CauHoi>();
+            return thi.CauHois.Where(t => t.DaXoa != true).ToList<CauHoi>();
         }
         public void Them(int them, int loaich, string ndch, string a, string b, string c, string d, string dadung, string hinh)
         {
